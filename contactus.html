@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <nav class="navbar">
+        <a class="logo" href="#"> UNUSUAL DÉJÀ-VU</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html" >HOMEPAGE</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="Aboutus.html">ABOUT US</a></li>
+                <li><a href="contactus.html" class = "active">CONTACT US</a></li>
+                
+            </ul> 
+        </div>
+        <img src="menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+
+        
+
+    </nav>
+
+</header>
+<body class="contactUs">
+    <h1 class="contact">CONTACT US</h1>
+    <div class="elements">
+    <div class="contentContactUs">
+        <p class="questions">If you have any questions or require further information, please fill in the form below or contact us at : unusual.deja.vu@gmail.com</p>
+    
+        
+        
+        <form id="contactForm" action="https://formspree.io/f/xdoqewvd"
+        method="POST">
+            <label for="email">Your E-mail address:</label>
+            <input class = "email" type="email" id="email" name="email" required>
+    
+            <label for="message">Message:</label>
+            <textarea class = "message" id="message" name="message" rows="4" required></textarea>
+    
+            <button class = "formButton" type="submit">SEND</button>
+        </form>
+    </div>
+</div>
+    
+</body>
+</html>

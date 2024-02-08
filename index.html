@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Little Jardin Secret</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <nav class="navbar">
+        <a class="logo" href="#"> UNUSUAL DÉJÀ-VU</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html" class = "active">HOMEPAGE</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="Aboutus.html">ABOUT US</a></li>
+                <li><a href="contactus.html">CONTACT US</a></li>
+                
+            </ul> 
+        </div>
+        <img src="menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+
+        
+
+    </nav>
+
+</header>
+<body class="main">
+<section class="intro">
+    <div class="content">
+        <h3 class="welcome">Welcome to authentic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Paris.</h3>
+        <div class="descriptionDiv">
+        <p class="welcomeDescription">Discover Paris from a unique lens and schedule a photoshoot to capture your special moments in hidden gems across the city. Tailored sessions for influencers, families seeking adventure, and couples on a romantic journey.</p>
+        </div>
+    </div>  
+    <img id="boutonBas" class="boutonBas" src="BoutonBas.png" alt="bouton">
+</section>
+
+<section class="plan" id="Plan">
+    <h2 class="textplan">PLAN DE PARIS </h2>
+    <h3 class="please">Please select a location.</h3>
+    <button class="location-btn" data-location-id="formulaire" data-location-text="Tour Eiffel" id="ET">Tour Eiffel</button>
+    <button class="location-btn" data-location-id="formulaire" data-location-text="Louvre museum" id="LOUVRE">Louvre Museum</button>
+    <button class="location-btn" data-location-id="formulaire" data-location-text="Saint-Sulpice" id="SS">Saint Sulpice</button>
+    <button class="location-btn" data-location-id="formulaire" data-location-text="Luxembourg" id="Lux">Luxembourg</button>
+    <button class="location-btn" data-location-id="formulaire" data-location-text="Sacré Coeur" id="SC">Sacré Coeur</button>
+    <button class="location-btn" data-location-id="formulaire" data-location-text="Notre-Dame" id="ND">Notre-Dame</button>
+</section>
+
+<section id="formulaire">
+    <form id="myForm" action="https://formspree.io/f/xdoqewvd"
+    method="POST">
+        <div class="forminfo">
+            <h2 class="book">Book your shoot !</h2>
+        <label for="location">Location</label>
+        <select id="location" name="location">
+            <option value="">Select location</option>
+            <option value="Tour Eiffel">Tour Eiffel</option>
+            <option value="Louvre museum">Louvre Museum</option>
+            <option value="Saint-Sulpice">Saint-Sulpice</option>
+            <option value="Luxembourg">Luxembourg</option>
+            <option value="Sacré Coeur">Sacré Coeur</option>
+            <option value="Notre-Dame">Notre-Dame de Paris</option>
+        </select>
+        <br>
+        <label for="email">E-mail adress</label>
+        <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail">
+        
+        <br>
+    
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
+        <br>
+        <label for="Style">Style</label>
+        <select id="Style" name="Style">
+            <option value="">Select style </option>
+            <option value="Cliché">Cliché photo</option>
+            <option value="Classic">Classic photo</option>
+            <option value="Underrated">Underrated point of view</option>
+            <option value="Unique">Unique point of view</option>
+
+        </select>
+        <p class="infoGalery">You can see what the different photo  styles look like by visiting the <a href="gallery.html" class="galpagelink">gallery page</a>. </p>
+        <label for="addInfo">Add any information or commentary</label>
+        <textarea id="addInfo" rows="4"></textarea>
+        <button type="submit" class="submit">Submit</button>
+        
+    </div>
+    </form>
+
+    <div class="description">
+        <img id="monumentImage" src="louvre.webp" alt="Monument">
+        <p id="monumentDescription">Choose a location</p>
+    </div>
+</section>
+
+<script> //Affichage monument + description
+    document.addEventListener('DOMContentLoaded', function() {
+        const locationBtns = document.querySelectorAll('.location-btn');
+        const selectLocation = document.getElementById('location');
+        const monumentImage = document.getElementById('monumentImage');
+        const monumentDescription = document.getElementById('monumentDescription');
+
+        // Écouter les changements de sélection dans le menu déroulant
+        selectLocation.addEventListener('change', function() {
+            const selectedLocation = selectLocation.value;
+
+            // Mettre à jour l'image et le texte descriptif du monument
+            switch (selectedLocation) {
+                case 'Tour Eiffel':
+                    monumentImage.src = 'eiffelcroquis.jpeg';
+                    monumentDescription.textContent = 'Eiffel Tower';
+                    break;
+                case 'Louvre museum':
+                    monumentImage.src = 'LouvreCadre.jpg';
+                    monumentDescription.textContent = 'Louvre Museum';
+                    break;
+                case 'Saint-Sulpice':
+                    monumentImage.src = 'Saintsulpicecielrecadre.jpg';
+                    monumentDescription.textContent = 'Saint-Sulpice Church';
+                    break;
+                case 'Luxembourg':
+                    monumentImage.src = 'pantheon.jpg';
+                    monumentDescription.textContent = 'Jardin du Luxembroug';
+                    break;
+                case 'Sacré Coeur':
+                    monumentImage.src = 'obscoeurrecadre.jpg';
+                    monumentDescription.textContent = 'Basilique du sacré-coeur';
+                    break;
+                case 'Notre-Dame':
+                    monumentImage.src = 'NotreDamaAsian.jpg';
+                    monumentDescription.textContent = 'Notre-Dame de Paris';
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        locationBtns.forEach(btn => {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Récupérer l'attribut data-location-id pour obtenir l'id de la section correspondante
+                const locationId = btn.getAttribute('data-location-id');
+                // Récupérer l'attribut data-location-text pour obtenir le texte du bouton
+                const locationText = btn.getAttribute('data-location-text');
+
+                // Mettre à jour la valeur du menu déroulant dans le formulaire
+                selectLocation.value = locationText;
+
+                // Mettre à jour l'image et le texte descriptif du monument
+                switch (locationText) {
+                    case 'Tour Eiffel':
+                        monumentImage.src = 'eiffelcroquis.jpeg';
+                        monumentDescription.textContent = 'Eiffel Tower';
+                        break;
+                    case 'Louvre museum':
+                        monumentImage.src = 'LouvreCadre.jpg';
+                        monumentDescription.textContent = 'Louvre museum';
+                        break;
+                    case 'Saint-Sulpice':
+                        monumentImage.src = 'Saintsulpicecielrecadre.jpg';
+                        monumentDescription.textContent = 'Saint-Sulpice Church';
+                        break;
+                    case 'Luxembourg':
+                        monumentImage.src = 'pantheon.jpg';
+                        monumentDescription.textContent = 'Jardin du Luxembroug';
+                        break;
+                    case 'Sacré Coeur':
+                        monumentImage.src = 'obscoeurrecadre.jpg';
+                        monumentDescription.textContent = 'Basilique du sacré-coeur';
+                        break;
+                    case 'Notre-Dame':
+                        monumentImage.src = 'NotreDamaAsian.jpg';
+                        monumentDescription.textContent = 'Notre-Dame de Paris';
+                        break;
+                    default:
+                        break;
+                }
+
+                // Faire défiler la page jusqu'à la section du formulaire correspondante
+                const section = document.getElementById(locationId);
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+</script>
+<script> //Formulaire
+    document.addEventListener('DOMContentLoaded', function() {
+        const locationBtns = document.querySelectorAll('.location-btn');
+        const selectLocation = document.getElementById('location');
+
+        locationBtns.forEach(btn => {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Récupérer l'attribut data-location-id pour obtenir l'id de la section correspondante
+                const locationId = btn.getAttribute('data-location-id');
+                // Récupérer l'attribut data-location-text pour obtenir le texte du bouton
+                const locationText = btn.getAttribute('data-location-text');
+
+                // Mettre à jour la valeur du menu déroulant dans le formulaire
+                selectLocation.value = locationText;
+
+                // Faire défiler la page jusqu'à la section du formulaire correspondante
+                const section = document.getElementById(locationId);
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+</script>
+<script> //boutonBas
+    var boutonBas = document.getElementById('boutonBas');
+    var sectionPlan = document.getElementById('Plan');
+
+    // Ajouter un écouteur d'événements au clic sur le bouton
+    boutonBas.addEventListener('click', function () {
+        // Faire défiler la page vers la section suivante
+        sectionPlan.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+    
+<script> //Menu Hamburger
+const menuHamburger = document.querySelector(".menu-hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+menuHamburger.addEventListener('click', () => {
+    const isMobileMenuActive = navLinks.classList.contains('mobile-menu');
+
+    if (isMobileMenuActive) {
+        navLinks.classList.remove('mobile-menu');
+    } else {
+        navLinks.classList.add('mobile-menu');
+    }
+});
+
+</script>
+
+
+</body>
+</html>

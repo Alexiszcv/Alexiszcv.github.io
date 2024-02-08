@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<header>
+    <nav class="navbar">
+        <a class="logo" href="#"> UNUSUAL DÉJÀ-VU</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html" >HOMEPAGE</a></li>
+                <li><a href="gallery.html" class = "active">GALLERY</a></li>
+                <li><a href="Aboutus.html">ABOUT US</a></li>
+                <li><a href="contactus.html">CONTACT US</a></li>
+                
+            </ul> 
+        </div>
+        <img src="menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+
+        
+
+    </nav>
+</header>
+
+<body class="gal">
+    
+    <section class="slider-container">
+        
+        <div class="slider-images">
+            <div class="slider-img ">
+                <img src="Temporary.jpg" alt="1">
+                <h1 class="eiffel">TOUR EIFFEL</h1>
+                <div class="details">
+                    <h2>Tour Eiffel</h2>
+                    <p>The Eiffel Tower is a unique architectural masterpiece. That's probably the reason why so many people want a picture in front of it. Why won't you have your own unique picture of it ?</p>
+                    <button class="ssbout"><a href="#sectionEiffel"> See Photos</a></button>
+                </div>
+            </div>
+
+            <div class="slider-img">
+                <img src="LouvreCadre.jpg" alt="2">
+                <h1 class="triomphe">LOUVRE MUSEUM</h1>
+                <div class="details">
+                    <h2>Louvre Museum</h2>
+                    <p>The Louvre Museum is the most visited museum in the world. Many people want a photo of themselves in front of its iconic glass pyramid. Choose to take a unique photo at or near the Louvre. </p>
+                    <button class="ssbout"><a href="#sectionLouvreMuseum"> See Photos</a></button>
+                </div>
+            </div>
+
+            <div class="slider-img">
+                <img src="NotreDamaAsian.jpg" alt="3">
+                <h1 class="sacrecoeur">NOTRE-DAME DE PARIS</h1>
+                <div class="details">
+                    <h2>Notre-Dame de Paris</h2>
+                    <p>NOTRE-DAME DE PARIS IS AN ICONIC LANDMARK AND A SYMBOL OF FRANCE'S RICH HISTORY AND ARCHITECTURE. WITH ITS MAJESTIC GOTHIC FACADE AND STORIED PAST. LET NOTRE-DAME INSPIRE YOUR MEMORIES AND REFLECT THE ELEGANCE OF PARISIAN HISTORY.</p>
+                    <button class="ssbout"><a href="#sectionND"> See Photos</a></button>
+                </div>
+            </div>
+
+            <div class="slider-img active">
+                <img src="LeBateauIvre.jpg" alt="4">
+                <h1 class="luco">LUXEMBOURG</h1>
+                <div class="details">
+                    <h2>Jardin du Luxembourg</h2>
+                    <p>THE JARDIN DU LUXEMBOURG STANDS AS A LUSH OASIS OF SERENITY AND NATURAL BEAUTY AMIDST THE BUSTLING STREETS OF PARIS. CHOOSE TO IMMORTALISE YOUR JOURNEY IN THIS ENCHANTING PLACE.</p>
+                    <button class="ssbout"><a href="#sectionLuco"> See Photos</a></button>
+                </div>
+            </div>
+
+            <div class="slider-img">
+                <img src="Saint_sulpice_ciel_v2.jpg" alt="5">
+                <h1 class="stsulpice">SAINT-SULPICE</h1>
+                <div class="details">
+                    
+                    <h2>Saint-Sulpice</h2>
+                    <p>SAINT-SULPICE RADIATES A TIMELESS CHARM AND SPIRITUAL AWE. CHOOSE TO DISCOVER THE QUIET GRANDEUR OF SAINT-SULPICE.  LET THIS PLACE IGNITE YOUR IMAGINATION AND CAPTURE THE TIMELESS SPIRIT OF PARIS.</p>
+                    <button class="ssbout"><a href="#sectionsaintsulpice"> See Photos</a></button>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="galpage">GALLERY</h1> 
+    </section>
+<section class="photo">
+    <section id="sectionsaintsulpice">
+        <h1>SAINT-SULPICE</h1>
+        <div class="slider">
+            <img src="eiffelcroquis.jpeg" alt="img1" class="img__slider active" />
+            <img src="eye.jpg" alt="img2" class="img__slider" />
+            <img src="fontainesaintsulpice.jpg" alt="img3" class="img__slider" />
+            <div class="suivant">
+                <i class="fas fa-chevron-circle-right"></i>
+            </div>
+            <div class="precedent">
+                <i class="fas fa-chevron-circle-left"></i>
+            </div>
+        </div>
+        <script>
+            let img__slider = document.getElementsByClassName('img__slider');
+
+            let etape = 0;
+
+            let nbr__img = img__slider.length;
+
+            let precedent = document.querySelector('.precedent');
+            let suivant = document.querySelector('.suivant');
+
+            function enleverActiveImages() {
+                for (let i = 0; i < nbr__img; i++) {
+                    img__slider[i].classList.remove('active');
+                }
+            }
+
+            suivant.addEventListener('click', function () {
+                etape++;
+                if (etape >= nbr__img) {
+                    etape = 0;
+                }
+                enleverActiveImages();
+                img__slider[etape].classList.add('active');
+            })
+
+            precedent.addEventListener('click', function () {
+                etape--;
+                if (etape < 0) {
+                    etape = nbr__img - 1;
+                }
+                enleverActiveImages();
+                img__slider[etape].classList.add('active');
+            })
+
+            setInterval(function () {
+                etape++;
+                if (etape >= nbr__img) {
+                    etape = 0;
+                }
+                enleverActiveImages();
+                img__slider[etape].classList.add('active');
+            }, 5000)
+        </script>
+    </section>
+
+    <section id="sectionLuco">
+        <h1>JARDIN DU LUXEMBOURG</h1>
+        <div class="sliderLuco">
+            <img src="eiffelcroquis.jpeg" alt="img1" class="img__sliderLuco active" />
+            <img src="eye.jpg" alt="img2" class="img__sliderLuco" />
+            <img src="fontainesaintsulpice.jpg" alt="img3" class="img__sliderLuco" />
+            <div class="suivantLuco">
+                <i class="fas fa-chevron-circle-right"></i>
+            </div>
+            <div class="precedentLuco">
+                <i class="fas fa-chevron-circle-left"></i>
+            </div>
+        </div>
+        <script>
+            let img__sliderLuco = document.getElementsByClassName('img__sliderLuco');
+
+            let etapeLuco = 0;
+
+            let nbr__imgLuco = img__sliderLuco.length;
+
+            let precedentLuco = document.querySelector('.precedentLuco');
+            let suivantLuco = document.querySelector('.suivantLuco');
+
+            function enleverActiveImages() {
+                for (let i = 0; i < nbr__img; i++) {
+                    img__sliderLuco[i].classList.remove('active');
+                }
+            }
+
+            suivantLuco.addEventListener('click', function () {
+                etapeLuco++;
+                if (etapeLuco >= nbr__imgLuco) {
+                    etapeLuco = 0;
+                }
+                enleverActiveImages();
+                img__sliderLuco[etapeLuco].classList.add('active');
+            })
+
+            precedentLuco.addEventListener('click', function () {
+                etapeLuco--;
+                if (etapeLuco < 0) {
+                    etapeLuco = nbr__imgLuco - 1;
+                }
+                enleverActiveImages();
+                img__sliderLuco[etapeLuco].classList.add('active');
+            })
+
+            setInterval(function () {
+                etapeLuco++;
+                if (etapeLuco >= nbr__imgLuco) {
+                    etapeLuco = 0;
+                }
+                enleverActiveImages();
+                img__sliderLuco[etapeLuco].classList.add('active');
+            }, 5000)
+        </script>
+        
+    </section>
+
+    <section id="sectionND">
+        <h1>NOTRE-DAME DE PARIS</h1>
+        <div class="sliderND">
+            <img src="wanney_notre_dame.jpg" alt="img1" class="img__sliderND active" />
+            <img src="Andrea3.jpg" alt="img2" class="img__sliderND" />
+            <img src="fontainesaintsulpice.jpg" alt="img3" class="img__sliderND" />
+            <div class="suivantND">
+                <i class="fas fa-chevron-circle-right"></i>
+            </div>
+            <div class="precedentND">
+                <i class="fas fa-chevron-circle-left"></i>
+            </div>
+        </div>
+        <script>
+            let img__sliderND = document.getElementsByClassName('img__sliderND');
+
+            let etapeND = 0;
+
+            let nbr__imgND = img__sliderND.length;
+
+            let precedentND = document.querySelector('.precedentND');
+            let suivantND = document.querySelector('.suivantND');
+
+            function enleverActiveImages() {
+                for (let i = 0; i < nbr__img; i++) {
+                    img__sliderND[i].classList.remove('active');
+                }
+            }
+
+            suivantND.addEventListener('click', function () {
+                etapeND++;
+                if (etapeND >= nbr__imgND) {
+                    etapeND = 0;
+                }
+                enleverActiveImages();
+                img__sliderND[etapeND].classList.add('active');
+            })
+
+            precedentND.addEventListener('click', function () {
+                etapeND--;
+                if (etapeND < 0) {
+                    etapeND = nbr__imgND - 1;
+                }
+                enleverActiveImages();
+                img__sliderND[etapeND].classList.add('active');
+            })
+
+            setInterval(function () {
+                etapeND++;
+                if (etapeND >= nbr__imgND) {
+                    etapeND = 0;
+                }
+                enleverActiveImages();
+                img__sliderND[etapeND].classList.add('active');
+            }, 5000)
+        </script>
+    </section>
+
+    <section id="sectionLouvreMuseum">
+        <h1>LOUVRE MUSEUM</h1>
+        <div class="sliderLouvre">
+            <img src="cadreSeul.png" alt="img1" class="img__sliderLouvre active" />
+            <img src="eye.jpg" alt="img2" class="img__sliderLouvre" />
+            <img src="fontainesaintsulpice.jpg" alt="img3" class="img__sliderLouvre" />
+            <div class="suivantLouvre">
+                <i class="fas fa-chevron-circle-right"></i>
+            </div>
+            <div class="precedentLouvre">
+                <i class="fas fa-chevron-circle-left"></i>
+            </div>
+            <script>
+                let img__sliderLouvre = document.getElementsByClassName('img__sliderLouvre');
+    
+                let etapeLouvre = 0;
+    
+                let nbr__imgLouvre = img__sliderLouvre.length;
+    
+                let precedentLouvre = document.querySelector('.precedentLouvre');
+                let suivantLouvre = document.querySelector('.suivantLouvre');
+    
+                function enleverActiveImages() {
+                    for (let i = 0; i < nbr__img; i++) {
+                        img__sliderLouvre[i].classList.remove('active');
+                    }
+                }
+    
+                suivantLouvre.addEventListener('click', function () {
+                    etapeLouvre++;
+                    if (etapeLouvre >= nbr__imgLouvre) {
+                        etapeLouvre = 0;
+                    }
+                    enleverActiveImages();
+                    img__sliderLouvre[etapeLouvre].classList.add('active');
+                })
+    
+                precedentLouvre.addEventListener('click', function () {
+                    etapeLouvre--;
+                    if (etapeLouvre < 0) {
+                        etapeLouvre = nbr__imgLouvre - 1;
+                    }
+                    enleverActiveImages();
+                    img__sliderLouvre[etapeLouvre].classList.add('active');
+                })
+    
+                setInterval(function () {
+                    etapeLouvre++;
+                    if (etapeLouvre >= nbr__imgLouvre) {
+                        etapeLouvre = 0;
+                    }
+                    enleverActiveImages();
+                    img__sliderLouvre[etapeLouvre].classList.add('active');
+                }, 5000)
+            </script>
+    </section>
+
+    <section id="sectionEiffel">
+        <h1>EIFFEL TOWER</h1>
+        <div class="sliderET">
+            <img src="eiffelcroquis.jpeg" alt="img1" class="img__sliderET active" />
+            <img src="eye.jpg" alt="img2" class="img__sliderET" />
+            <img src="fontainesaintsulpice.jpg" alt="img3" class="img__sliderET" />
+            <div class="suivantET">
+                <i class="fas fa-chevron-circle-right"></i>
+            </div>
+            <div class="precedentET">
+                <i class="fas fa-chevron-circle-left"></i>
+            </div>
+            <script>
+                let img__sliderET = document.getElementsByClassName('img__sliderET');
+    
+                let etapeET = 0;
+    
+                let nbr__imgET = img__sliderET.length;
+    
+                let precedentET = document.querySelector('.precedentET');
+                let suivantET = document.querySelector('.suivantET');
+    
+                function enleverActiveImages() {
+                    for (let i = 0; i < nbr__img; i++) {
+                        img__sliderET[i].classList.remove('active');
+                    }
+                }
+    
+                suivantET.addEventListener('click', function () {
+                    etapeET++;
+                    if (etapeET >= nbr__imgET) {
+                        etapeET = 0;
+                    }
+                    enleverActiveImages();
+                    img__sliderET[etapeET].classList.add('active');
+                })
+    
+                precedentET.addEventListener('click', function () {
+                    etapeET--;
+                    if (etapeET < 0) {
+                        etapeET = nbr__imgET - 1;
+                    }
+                    enleverActiveImages();
+                    img__sliderET[etapeET].classList.add('active');
+                })
+    
+                setInterval(function () {
+                    etapeET++;
+                    if (etapeET >= nbr__imgET) {
+                        etapeET = 0;
+                    }
+                    enleverActiveImages();
+                    img__sliderET[etapeET].classList.add('active');
+                }, 5000)
+            </script>
+        
+    </section>
+</section>
+
+    <script src="jQuery.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+</script>
+
+
+    
+</body>
+</html>
