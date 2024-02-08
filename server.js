@@ -4,8 +4,6 @@ const bodyParser = require('body-parser');
 const sgMail = require('@sendgrid/mail');
 const path = require('path');
 
-// Configuration de SendGrid avec votre clé API
-sgMail.setApiKey('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');
 
 // Initialisation de l'application Express
 const app = express();
